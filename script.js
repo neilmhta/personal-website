@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const viewMoreBtn = document.getElementById("view-more-btn");
   const modal = document.getElementById("modal");
   const closeModalBtn = document.getElementById("close-modal-btn");
+  const favicon = document.querySelector("link[rel='icon']");
 
   let currentIndex = 0;
 
@@ -38,6 +39,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  // Navigate using left and right arrow keys
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowLeft") {
+      navigateToSection(currentIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      navigateToSection(currentIndex + 1);
+    }
+  });
+
   function navigateToSection(index) {
     if (index < 0) {
       index = sections.length - 1; // Loop back to the last section
@@ -47,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
     sections[index].scrollIntoView({ behavior: "smooth" });
     currentIndex = index;
     updateNav(index);
+    
+    // Change favicon based on section index
+    changeFavicon(index);
   }
 
   function updateNav(index) {
@@ -72,4 +85,22 @@ document.addEventListener("DOMContentLoaded", function() {
       modal.style.display = "none";
     }
   });
+
+  // Function to change the favicon based on section index
+  function changeFavicon(index) {
+    switch (index) {
+      case 0:
+        favicon.href = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>";
+        break;
+      case 1:
+        favicon.href = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋️</text></svg>";
+        break;
+      case 2:
+        favicon.href = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>";
+        break;
+      // Add more cases for other sections if needed
+      default:
+        favicon.href = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>";
+    }
+  }
 });
