@@ -274,7 +274,9 @@ h1{
 }
 .card-abstract {
     margin: 10px 0;
+    color: var(--main-text)
 }
 .card-outlet {
     font-style: italic;
+    color: var(--main-text)
 }
