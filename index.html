@@ -102,7 +102,12 @@ function randomInRange(min, max) {
 function createCircle() {
     const circle = document.createElement('div');
     circle.classList.add('circle');
-    const size = randomInRange(100, 520);
+    const originalSize = randomInRange(100, 520);
+    let size=originalSize;
+        // Adjust size for mobile screens
+        if (window.innerWidth < 600) {
+        size = originalSize / 2;
+    }
     const radius = randomInRange(0.7, 1)*size;
     circle.style.width = `${size}px`;
     circle.style.borderRadius = `${radius}px`;
