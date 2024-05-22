@@ -163,11 +163,16 @@ h1{
   
   .modal-content {
     background-color: var(--main-bkg);
-    margin: 3% auto;
+    margin: 6% auto;
     padding: 20px;
     width: 80%;
-    overflow-y: scroll;
+    display: flex; 
+    flex-direction: column;
   }
+
+.cardlist{
+  overflow-y: scroll;
+}
   
   #close-modal-btn {
     color: #aaa;
