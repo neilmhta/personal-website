@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">  
+</head>
+<body>
+    <div id="background"></div>
+    <header class="fixedHeader">
+        <nav>
+          <ul>
+            <li><a href="#landing">Me</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+        <div class="container">
+    <section id="landing" class="section">
+      <h1>Neil Mehta</h1>
+      <p>is a writer and researcher based in Providence, R.I.</p>
+    </section>
+    <section id="writing" class="section">
+        <div class="writing-wrapper">
+        <div><h2>Writing</h2></div>
+        <div class="story-list">
+          <div class="story">
+            <h3>Title of Story 1</h3>
+            <p>Description of Story 1</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 2</h3>
+            <p>Description of Story 2</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 3</h3>
+            <p>Description of Story 3</p>
+          </div>
+          
+          <!-- Add more stories here if needed -->
+          <button id="view-more-btn">View more</button>
+        </div>
+        </div>
+      </section>
+    <section id="contact" class="section">
+      <h2>Contact me</h2>
+      <p>at neilmhta[at]gmail[dot]com</p>
+      <p>or at neilmehta[at]browndailyherald[dot]org</p>
+    </section>
+  </div>
+  <footer class="fixedFooter">
+    Copyright &copy; 2014 Neil Mehta
+  </footer>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal-btn">&times;</span>
+      <h2>Full Story List</h2>
+      <div class="story-list">
+        <div class="story">
+            <h3>Title of Story 1</h3>
+            <p>Description of Story 1</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 2</h3>
+            <p>Description of Story 2</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 3</h3>
+            <p>Description of Story 3</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 1</h3>
+            <p>Description of Story 1</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 2</h3>
+            <p>Description of Story 2</p>
+          </div>
+          <div class="story">
+            <h3>Title of Story 3</h3>
+            <p>Description of Story 3</p>
+          </div>
+
+        <!-- Add more stories here if needed -->
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    // Function to generate a random number between min and max
+function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// Function to create a circle element
+function createCircle() {
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+    const size = randomInRange(100, 520);
+    const radius = randomInRange(0.7, 1)*size;
+    circle.style.width = `${size}px`;
+    circle.style.borderRadius = `${radius}px`;
+    circle.style.height = `${size}px`;
+    circle.style.background = `rgba(${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${randomInRange(0.1, 0.5)})`;
+    circle.style.position = 'absolute';
+    circle.style.top = `${randomInRange(0, window.innerHeight - size)}px`;
+    circle.style.left = `${randomInRange(0, window.innerWidth - size)}px`;
+
+    // CSS Animation for fade in and fade out
+    circle.style.animation = 'fadeCircle 5s linear forwards';
+
+    // Remove the circle after the animation completes
+    circle.addEventListener('animationend', () => {
+        circle.remove();
+    });
+
+    return circle;
+}
+
+// Function to animate circles
+function animateCircles() {
+    const background = document.getElementById('background');
+    setInterval(() => {
+        const circle = createCircle();
+        background.appendChild(circle);
+        setTimeout(() => {
+            circle.remove();
+        }, 5000); // Remove the circle after 5 seconds
+    }, 160); // 
+}
+
+// Start animation
+animateCircles();
+
+  </script>
+
+</body>
+</html>
