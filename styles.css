@@ -1,17 +1,22 @@
 :root{
  --main-text: #111;
  --main-alt: rgba(0, 0, 0, 0.8);
+ --main-bkg: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
       --main-text: #fff;
+      --main-bkg: #333;
    }
   body {
       background-color: #121212; /* Dark mode background color */
   }
 }
 
+h2 {
+  color: var(--main-text)
+}
 
 body, html {
     margin: 0;
@@ -161,7 +166,7 @@ h1{
     }
   
   .modal-content {
-    background-color: #eee;
+    background-color: var(--main-bkg);
     margin: 10% auto;
     padding: 20px;
     width: 80%;
