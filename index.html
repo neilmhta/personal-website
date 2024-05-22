@@ -26,7 +26,7 @@
         <div class="container">
     <section id="landing" class="section">
       <h1>Neil Mehta</h1>
-      <p>is a writer and researcher based in Providence, R.I.</p>
+      <p style="font-size: 1.1em;" class="typewrite" data-period="1000" data-type='[ "is a writer and researcher based in Providence, Rhode Island." ]'>
     </section>
     <section id="writing" class="section">
         <div class="writing-wrapper">
@@ -35,13 +35,11 @@
           <div class="story">
             <h3><a href="https://gothamist.com/news/nyc-broker-fees-are-skyrocketing-the-city-council-is-trying-to-put-the-fees-on-landlords">NYC broker fees are skyrocketing. The City Council is trying to put the fees on landlords.</a></h3>
             <p>For <i>Gothamist</i></p>
-            <p>As broker fees rise for NYC's apartment hunters, a new bill aims to shift the cost to landlords.</p>
             <p>June 30, 2023</p>
           </div>
           <div class="story">
             <h3><a href="https://gothamist.com/news/inside-a-brooklyn-housing-complex-where-a-third-of-tenants-face-eviction">Inside a Brooklyn housing complex, where a third of tenants face eviction</a></h3>
             <p>For <i>Gothamist</i></p>
-            <p>The owner of the sprawling Flatbush Gardens apartment complex has filed to evict more than a third of the nearly 2,500 households there since the start of 2022, fueling a rise in removals in the neighborhood that outpaces any other section of Brooklyn.</p>
             <p>Aug 11, 2023</p>
           </div>
           
@@ -98,10 +96,19 @@ function createCircle() {
         size = originalSize / 2;
     }
     const radius = randomInRange(0.7, 1)*size;
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     circle.style.width = `${size}px`;
     circle.style.borderRadius = `${radius}px`;
     circle.style.height = `${size}px`;
-    circle.style.background = `rgba(${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${randomInRange(0.1, 0.5)})`;
+    let opacity;
+      if (isDarkMode) {
+          // In dark mode, opacity range between 0.5 and 0.7
+          opacity = randomInRange(0.5, 0.6);
+      } else {
+          // In light mode, opacity range between 0.1 and 0.5
+          opacity = randomInRange(0.2, 0.5);
+      }
+    circle.style.background = `rgba(${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${opacity})`;
     circle.style.position = 'absolute';
     circle.style.top = `${randomInRange(0, window.innerHeight - size)}px`;
     circle.style.left = `${randomInRange(0, window.innerWidth - size)}px`;
@@ -133,6 +140,7 @@ function animateCircles() {
 animateCircles();
 
   </script>
-
+  <script src="typing-animation.js"></script>
+  
 </body>
 </html>
