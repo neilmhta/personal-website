@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const closeModalBtn = document.getElementById("close-modal-btn");
   const favicon = document.querySelector("link[rel='icon']");
 
+  // Set initial index to the landing section (assuming it's the first section)
   let currentIndex = 0;
+  navigateToSection(currentIndex);
 
   // Attach click event listeners to navbar links
   navLinks.forEach((link, index) => {

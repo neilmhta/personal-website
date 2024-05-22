@@ -109,11 +109,7 @@ h1{
   }
 
 
-  
-  /* Add this class to highlight the current section name */
-  .currentSection {
-    font-weight: bold;
-  }
+ 
   
   @media screen and (max-width: 768px) {
     section {
@@ -167,7 +163,7 @@ h1{
   
   .modal-content {
     background-color: var(--main-bkg);
-    margin: 10% auto;
+    margin: 3% auto;
     padding: 20px;
     width: 80%;
     overflow-y: scroll;
@@ -240,4 +236,40 @@ h1{
 
 #darkModeToggle:hover {
   background-color: #0056b3;
+}
+
+
+ 
+  /* Add this class to highlight the current section name */
+  .currentSection {
+    font-weight: 600;
+  }
+
+
+
+  /* cards */
+
+  .card {
+    margin: 20px auto;
+    border-bottom: 0.5px solid var(--main-text);
+    padding: 20px;
+    width: 90%;
+    text-align: center;
+}
+.card img {
+    max-width: 100%;
+}
+.card-title {
+    font-size: 1.25em;
+    margin: 15px 0;
+    font-weight: bold;
+}
+.card-title a {
+    text-decoration: none;
+}
+.card-abstract {
+    margin: 10px 0;
+}
+.card-outlet {
+    font-style: italic;
 }
