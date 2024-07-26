@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Swipe gesture detection
   let touchstartX = 0;
   let touchendX = 0;
+  const swipeThreshold = 50; // Minimum horizontal distance in pixels to be considered a swipe
 
   document.addEventListener("touchstart", function(event) {
     touchstartX = event.changedTouches[0].screenX;
@@ -32,12 +33,16 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function handleSwipe() {
-    if (touchendX < touchstartX) {
-      // Swiped left
-      navigateToSection(currentIndex + 1);
-    } else if (touchendX > touchstartX) {
-      // Swiped right
-      navigateToSection(currentIndex - 1);
+    const swipeDistance = touchendX - touchstartX;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance < 0) {
+        // Swiped left
+        navigateToSection(currentIndex + 1);
+      } else {
+        // Swiped right
+        navigateToSection(currentIndex - 1);
+      }
     }
   }
 
@@ -59,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sections[index].scrollIntoView({ behavior: "smooth" });
     currentIndex = index;
     updateNav(index);
-    
+
     // Change favicon based on section index
     changeFavicon(index);
   }
