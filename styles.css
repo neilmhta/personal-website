@@ -1,7 +1,7 @@
 :root{
  --main-text: #111;
  --main-alt: rgba(0, 0, 0, 0.8);
- --main-bkg: #eee;
+ --main-bkg: #fff;
 }
 
 
@@ -11,7 +11,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-      --main-text: #fff;
+      --main-text: #eee;
       --main-bkg: #333;
    }
   body {
@@ -94,7 +94,6 @@ h1{
 
   .section {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,14 +101,12 @@ h1{
     padding-left: 10vw;
     padding-right: 10vw;
   }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+
+  .section-fixed{
+    justify-content: flex-start;
   }
-  
+
+    
   #landing, #writing, #contact {
     color: var(--main-text);
   }
@@ -123,8 +120,6 @@ h1{
     z-index: 1000;
     text-align: center;
   }
-
-
  
   
   @media screen and (max-width: 768px) {
@@ -134,81 +129,6 @@ h1{
         }
   }
   
-  /* Modal styles */
-
-
-  .writing-wrapper{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-.story-list{
-  max-width: 600px;
-}
-
-
-#view-more-btn{
-  font-family:  GT-America, sans-serif;
-  border: 0px;
-}
-  @media screen and (max-width: 1100px) {
-    .writing-wrapper {
-        flex-direction: column;
-    }
-    .writing-wrapper > div{
-        padding-right: 0vw;
-      }
-    
-  }
-  
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: var(--main-alt);
-    }
-  
-  .modal-content {
-    background-color: var(--main-bkg);
-    margin: 6% auto;
-    padding: 20px;
-    width: 80%;
-    display: flex; 
-    flex-direction: column;
-  }
-
-.cardlist{
-  overflow-y: scroll;
-}
-  
-  #close-modal-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  #close-modal-btn:focus {
-    color: var(--main-text);
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .modal-content {
-      width: 90%;
-    }
-  }
   
 
   /* BLURRY CIRCLES */ 
@@ -268,31 +188,88 @@ h1{
 
 
 
-  /* cards */
 
-  .card {
-    margin: 20px auto;
-    border-bottom: 0.5px solid var(--main-text);
-    padding: 20px;
-    width: 90%;
-    text-align: center;
+  /* story table */
+  .tag-container {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 }
-.card img {
-    max-width: 100%;
+
+.storytable{
+  width: inherit;
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
 }
-.card-title {
-    font-size: 1.25em;
-    margin: 15px 0;
-    font-weight: bold;
+
+.storytable{
+  font-size: 0.9rem;
+
 }
-.card-title a {
-    text-decoration: none;
+
+.tableurl{
+  font-size: 0.9rem;
 }
-.card-abstract {
-    margin: 10px 0;
-    color: var(--main-text)
+
+.tag {
+    background-color: var(--main-bkg);
+    color: var(--main-text);
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
 }
-.card-outlet {
-    font-style: italic;
-    color: var(--main-text)
+
+.tag:hover {
+  filter: brightness(0.9);
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr{
+  border-top: 1px solid var(--main-text);
+  border-bottom: 1px solid var(--main-text);
+  transition: 0.2s;
+}
+
+tr:hover{
+  background-color: var(--main-bkg);
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--main-bkg);
+}
+
+
+/* TABLE CATEGORIES */
+
+.category-default {
+  background-color: grey;
+  color: white;
+}
+
+.category-journalism {
+  background-color: blue;
+  color: white;
+}
+
+.category-research {
+  background-color: red;
+  color: white;
+}
+
+.category-housing {
+  background-color: green;
+  color: white;
+}
+
