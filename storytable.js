@@ -81,3 +81,22 @@ document.querySelectorAll('.tag').forEach(button => {
 
 // Populate table on page load
 populateTable();
+
+
+// Function to search and filter the table
+function searchStories(query) {
+  const lowerCaseQuery = query.toLowerCase();
+  document.querySelectorAll('tbody tr').forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if (rowText.includes(lowerCaseQuery)) {
+          row.style.display = ''; // Show rows that match
+      } else {
+          row.style.display = 'none'; // Hide rows that don't match
+      }
+  });
+}
+
+// Add an event listener to the search bar
+document.getElementById('search-bar').addEventListener('input', (event) => {
+  searchStories(event.target.value);
+});

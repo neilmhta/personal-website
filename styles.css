@@ -192,8 +192,12 @@ h1{
 
   /* story table */
   .tag-container {
-    margin-bottom: 10px;
     font-size: 0.9rem;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }
 
 .storytable{
@@ -213,8 +217,7 @@ h1{
     color: var(--main-text);
     border: none;
     padding: 5px 10px;
-    margin-right: 5px;
-    margin-top: 3px;
+    margin-left: 5px;
     font-size: 0.9rem;
     cursor: pointer;
     border-radius: 5px;
@@ -310,3 +313,55 @@ display: none; /* Set the third column to 30% of the table width */
   color: white;
 }
 
+
+.writing-nav-wrapper{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+
+/* Search bar container */
+.search-container {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Search input field */
+#search-bar {
+  margin: 5px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 0px solid rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease-in-out;
+}
+
+::placeholder{
+  color: var(--main-text)
+}
+
+input{
+  color: var(--main-text)
+}
+
+/* Expand the search bar on focus or hover */
+#search-bar:hover, #search-bar:focus {
+  background-color: var(--main-bkg);
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 768px) {
+  .writing-nav-wrapper{
+    flex-direction: column;
+  }
+  #search-bar {
+    text-align: center;
+    margin-top: 15px;
+  }
+}
