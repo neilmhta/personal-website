@@ -4,162 +4,252 @@
 
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNHX8W3DB0"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-FNHX8W3DB0');
-    </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Neil Mehta</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div id="background"></div>
-        <header class="fixedHeader">
-            <nav>
-            <ul>
-                <li><a href="#landing">Home</a></li>
-                <li><a href="#bio">Me</a></li>
-                <li><a href="#writing">Writing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            </nav>
-        </header>
-        <div class="container">
-            <section id="landing" class="section">
-            <h2>Neil Mehta</h2>
-            
-            <p style="font-size: 1.1em;" class="typewrite" data-period="1000" data-type='[ "is a writer and researcher based in Providence, Rhode Island." ]'>
-            
-            </section>
-            <section id="bio" class="section">
-                <h2>Bio</h2>
-                <div class="bio-text">
-                <p>I'm a student at Brown University interested in housing, journalism and health care delivery. My reporting focuses on housing and the economy.</p>
-                <p>Currently, I'm a research assistant at the Center for Advancing Health Policy Through Research at Brown's School of Public Health.</p>
-                <p>Previously, I worked at The Wall Street Journal, WNYC and Gothamist for New York Public Radio and the National Institute on Minority Health and Health Disparities at the NIH.</p>
-                </div>
-            </section>
-    
-            <section id="writing" class="section section-fixed">
-                <div><h2>Writing</h2></div>
-            
-
-                <div class="writing-nav-wrapper">
-                    <div class="tag-container">
-                        Tags: 
-                        <button class="tag category-default" data-category="all">All</button>
-                        <button class="tag category-journalism" data-category="Journalism">Journalism</button>
-                        <button class="tag category-research" data-category="Research">Research</button>
-                        <button class="tag category-housing" data-category="Housing">Housing</button>
-                    </div>
-                    
-                    <!-- Add the search bar -->
-                    <div class="search-container">
-                        <input type="text" id="search-bar" placeholder="Search">
-                    </div>
-                
-                </div>
-
-                <div class="storytable">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Publication</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-body">
-                            <!-- rows go here -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-
-            <section id="contact" class="section">
-            <h2>Contact me</h2>
-            <p>at neilmhta[at]gmail[dot]com</p>
-            <p>or at <a href="https://x.com/neilmhta" style="text-decoration: none; font-weight: 600;">@neilmhta</a> on Twitter</p>
-            <p>or at <a href="https://bsky.app/profile/neilmhta.bsky.social" style="text-decoration: none; font-weight: 600;">@neilmhta</a> on Bluesky</p>
-            </section>
-        </div>
-  
-  <script src="script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNHX8W3DB0"></script>
   <script>
-    // Function to generate a random number between min and max
-function randomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-// Function to create a circle element
-function createCircle() {
-    const circle = document.createElement('div');
-    circle.classList.add('circle');
-    const originalSize = randomInRange(100, 520);
-    let size=originalSize;
-        // Adjust size for mobile screens
-        if (window.innerWidth < 600) {
-        size = originalSize / 2;
-    }
-    const radius = randomInRange(0.7, 1)*size;
-    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    circle.style.width = `${size}px`;
-    circle.style.borderRadius = `${radius}px`;
-    circle.style.height = `${size}px`;
-    let opacity;
-      if (isDarkMode) {
-          // In dark mode, opacity range between 0.5 and 0.7
-          opacity = randomInRange(0.5, 0.6);
-      } else {
-          // In light mode, opacity range between 0.1 and 0.5
-          opacity = randomInRange(0.2, 0.5);
-      }
-    circle.style.background = `rgba(${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${randomInRange(100, 255)}, ${opacity})`;
-    circle.style.position = 'absolute';
-    circle.style.top = `${randomInRange(0, window.innerHeight - size)}px`;
-    circle.style.left = `${randomInRange(0, window.innerWidth - size)}px`;
-
-    // CSS Animation for fade in and fade out
-    circle.style.animation = 'fadeCircle 5s linear forwards';
-
-    // Remove the circle after the animation completes
-    circle.addEventListener('animationend', () => {
-        circle.remove();
-    });
-
-    return circle;
-}
-
-// Function to animate circles
-function animateCircles() {
-    const background = document.getElementById('background');
-    setInterval(() => {
-        const circle = createCircle();
-        background.appendChild(circle);
-        setTimeout(() => {
-            circle.remove();
-        }, 5000); // Remove the circle after 5 seconds
-    }, 160); // 
-}
-
-// Start animation
-animateCircles();
-
+  gtag('config', 'G-FNHX8W3DB0');
   </script>
-  <script src="typing-animation.js"></script>
-  <script src="storytable.js"></script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👍</text></svg>">
+
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neil Mehta</title>
+  <meta name="description" content="Neil Mehta is a journalist focused on health policy, healthcare delivery, and housing.." />
+  <meta name="author" content="Neil Mehta" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://byneilmehta.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Neil Mehta | Journalist Covering Health Policy and Housing" />
+  <meta property="og:description" content="Explore writing on health care, housing, and policy from Neil Mehta. Published in WSJ, Health Affairs, Boston Globe, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://yourdomain.com/static/image.jpeg" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="By Neil Mehta" />
+  <meta name="twitter:description" content="Journalist based in New York." />
+  <meta name="twitter:image" content="https://byneilmehta.com/static/image.jpeg" />
+  <meta name="twitter:site" content="@neilmhta" />
+
+  <!-- LD for self -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Neil Mehta",
+  "url": "https://byneilmehta.com/",
+  "sameAs": [
+    "https://x.com/neilmhta",
+    "https://linkedin.com/in/neilmhta",
+    "https://open.spotify.com/user/neilmhta"
+  ],
+  "jobTitle": "Journalist and Research Assistant",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Center for Advancing Health Policy Through Research",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "Brown University"
+    }
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Brown University"
+  },
+  "knowsAbout": [
+    "Health policy",
+    "Healthcare delivery systems",
+    "Private equity in healthcare",
+    "Physician practice acquisition",
+    "Hospital ownership models",
+    "Housing and healthcare access",
+    "Health disparities research",
+    "Socioeconomic determinants of health",
+    "Public health communication",
+    "Investigative journalism",
+    "Mixed-methods health research",
+    "Policy evaluation in healthcare",
+    "Data journalism",
+  ],
+  "description": "Neil Mehta is a journalist and researcher specializing in U.S. health policy, healthcare delivery systems, and housing-related barriers to care. His reporting and research explore how financial structures and access policies shape population health.",
+  "nationality": "US",
+  "gender": "Male"
+}
+</script>
+
+  <!-- LD for articles -->
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Forget Office Conversions. Cities Are Turning Old Hospitals Into Residential Housing.",
+    "datePublished": "2025-02-18",
+    "author": {
+      "@type": "Person",
+      "name": "Neil Mehta"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Wall Street Journal"
+    },
+    "url": "https://www.wsj.com/real-estate/former-hospitals-residential-housing-bae7c276",
+    "mainEntityOfPage": "https://www.wsj.com/real-estate/former-hospitals-residential-housing-bae7c276",
+    "image": "https://images.wsj.net/im-80695907?width=700&size=1.501&pixel_ratio=1.5"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "The loophole that could allow another private equity debacle in Mass. health care",
+    "datePublished": "2025-07-10",
+    "author": {
+      "@type": "Person",
+      "name": "Neil Mehta"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Boston Globe"
+    },
+    "url": "https://www.bostonglobe.com/2025/07/10/opinion/private-equity-hospitals-steward-health-care/",
+    "mainEntityOfPage": "https://www.bostonglobe.com/2025/07/10/opinion/private-equity-hospitals-steward-health-care/",
+    "image": "https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/P2XG5OYNWG2GAUQVTFVJ35HCVM.jpg?auth=369aaea76ac17ba12050bac56e0ae7ffa31ee86c2789809881e1985252264d0f&width=1440"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Inside a Brooklyn housing complex, where a third of tenants face eviction",
+    "datePublished": "2023-07-28",
+    "author": {
+      "@type": "Person",
+      "name": "Neil Mehta"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gothamist"
+    },
+    "url": "https://gothamist.com/news/inside-a-brooklyn-housing-complex-where-a-third-of-tenants-face-eviction",
+    "mainEntityOfPage": "https://gothamist.com/news/inside-a-brooklyn-housing-complex-where-a-third-of-tenants-face-eviction",
+    "image": "https://images-prod.gothamist.com/images/IMG_44.2e16d0ba.fill-700x467.format-webp.webpquality-70_cMnQ3SB.webp"
+  }
+]
+</script>
 
 
+</head>
+<body style="width: min(550px, 80%); margin: auto">
+  <h1>About Me</h1>
+  <p>I'm a journalist interested in health policy, health care delivery and housing. I'm currently a research assistant at the Center for Advancing Health Policy Through Research at the Brown University Schol of Public Health. You can find my writing in The Wall Street Journal, Health Affairs, The Boston Globe and Gothamist.</p>
+  <p>I graduated from Brown University in 2025 with a dual Sc.B. in Statistics and A.B. in Public Health. While at Brown, I was editor-in-chief of The Brown Daily Herald and interned at the National Institutes of Health. In my free time, I co-run a free <a href="https://copulaprogram.org/" target="_blank">summer reserach program</a> for high school students.</p>
+  <h1>Writing</h1>
+  <p>Here is a selection of my work:</p>
+<ul>
+  <li><a href="https://www.bostonglobe.com/2025/07/10/opinion/private-equity-hospitals-steward-health-care/" target="_blank">The loophole that could allow another private equity debacle in Mass. health care</a> — The Boston Globe.</li>
+  <li><a href="https://www.healthaffairs.org/content/forefront/massachusetts-s-new-health-care-reform-takes-aim-private-equity" target="_blank">How Massachusetts’s New Health Care Reform Takes Aim at Private Equity</a> — Health Affairs Forefront.</li>
+  <li><a href="https://www.milbank.org/publications/the-corporate-backdoor-to-medicine-how-msos-are-reshaping-physician-practices/" target="_blank">The Corporate Backdoor to Medicine: How MSOs Are Reshaping Physician Practices</a> — Milbank Memorial Fund.</li>
+  <li><a href="https://www.wsj.com/real-estate/former-hospitals-residential-housing-bae7c276?st=Nc6ir5&reflink=desktopwebshare_permalink" target="_blank">Forget Office Conversions. Cities Are Turning Old Hospitals Into Residential Housing.</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.healthaffairs.org/content/forefront/california-s-failed-bid-regulate-private-equity-investment-health-care" target="_blank">California’s Failed Bid To Regulate Private Equity Investment In Health Care</a> — Health Affairs Forefront.</li>
+  <li><a href="https://www.wsj.com/real-estate/related-closes-in-on-deal-to-rescue-notoriously-stalled-massive-housing-project-a9f275a8?reflink=desktopwebshare_permalink" target="_blank">Related Closes In on Deal to Rescue Notoriously Stalled Massive Housing Project</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/real-estate/commercial/jamie-hodari-industrious-c36ea609?st=hg2qwbbzqj47p2g&reflink=desktopwebshare_permalink" target="_blank">The Anti-Adam Neumann of the Co-Working Industry</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/real-estate/commercial/san-francisco-is-sinking-in-bad-hotel-debt-4ace4f67?st=flbr2e77bno2b2q&reflink=desktopwebshare_permalink" target="_blank">San Francisco Is Sinking in Bad Hotel Debt</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/real-estate/hotel-owners-and-union-clash-over-proposal-to-regulate-nonunion-hotels-4cc5601c" target="_blank">Hotel Owners and Union Clash Over Proposal to Regulate Nonunion Hotels</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/real-estate/americas-smallest-apartments-are-getting-even-smaller-bd367f7e" target="_blank">America’s Smallest Apartments Are Getting Even Smaller</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/real-estate/foreign-homebuyers-us-high-prices-sales-decline-ac704499" target="_blank">Foreign Buyers of U.S. Homes Pay Record Prices, but Sales Dwindle</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/education/ivy-league-social-club-modernization-new-members-9656e00f" target="_blank">Exclusive Ivy League Social Clubs Are Desperate for Members</a> — The Wall Street Journal.</li>
+  <li><a href="https://gothamist.com/news/funeral-for-njs-late-lt-gov-sheila-oliver-concludes-3-day-state-service" target="_blank">Funeral for NJ's late Lt. Gov. Sheila Oliver concludes 3-day state service</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/inside-a-brooklyn-housing-complex-where-a-third-of-tenants-face-eviction" target="_blank">Inside a Brooklyn housing complex, where a third of tenants face eviction</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/nycs-eviction-hotspots-tracking-the-10k-removals-since-moratorium-ended" target="_blank">NYC's eviction hotspots: Tracking the 10K removals since moratorium ended</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/as-actors-and-writers-strike-continues-nyc-freelancers-brace-for-months-without-pay" target="_blank">As actors and writers strike continues, NYC freelancers brace for months without pay</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/city-to-open-migrant-relief-center-near-old-psychiatric-hospital-in-queens" target="_blank">City to open migrant relief center near old psychiatric hospital in Queens</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/nearly-400-department-of-transportation-employees-sue-city-alleging-unpaid-overtime" target="_blank">Nearly 400 Department of Transportation employees sue city, alleging unpaid overtime</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/queens-residents-concerned-over-migrant-shelter-on-the-grounds-of-an-old-psychiatric-hospital" target="_blank">Queens residents concerned over migrant shelter on the grounds of an old psychiatric hospital</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/nypd-does-not-report-where-it-deploys-police-scientists-used-ai-dashcams-to-find-out" target="_blank">The NYPD doesn't report where it deploys police. So scientists used AI, dashcams to find out.</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/nyc-says-its-winning-war-on-rats-as-monthly-complaints-remain-below-last-years-epic-highs" target="_blank">NYC says it's winning war on rats as monthly complaints remain below last year's epic highs</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/nyc-broker-fees-are-skyrocketing-the-city-council-is-trying-to-put-the-fees-on-landlords" target="_blank">NYC broker fees are skyrocketing. The City Council is trying to put the fees on landlords.</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/map-harlem-council-race-leads-turnout-in-nyc-primary-election" target="_blank">MAP: Harlem Council race leads turnout in NYC primary election</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/nyc-board-votes-to-increase-rents-on-1-million-rent-stabilized-units-by-3" target="_blank">NYC board votes to increase rents on 1 million rent-stabilized units by 3%</a> — Gothamist.</li>
+  <li><a href="https://gothamist.com/news/rat-complaints-in-nyc-fell-15-vs-a-year-ago-but-are-we-just-getting-used-to-them" target="_blank">Rat complaints in NYC fell 15% vs. a year ago. But are we just getting used to them?</a> — Gothamist.</li>
+</ul>
+
+  <h1>Research</h1>
+  <p>Here are some of my recent projects:</p>
+
+<ul>
+  <li>
+    <strong>Mehta, Neil</strong>; Noh, Madeline; Agénor, Madina; Murchison, Gabriel; Hughto, Jaclyn; Nelson, Kimberly; Gordon, Allegra. 2025. 
+    <em>Experiences of gender affirmation in healthcare settings and HIV testing among transgender and nonbinary young adults in the United States.</em> 
+    <em>AIDS Care</em>.
+  </li>
+  <li>
+    Gaudino, Stephen J; Beaupre, Michael; Lin, Xun; Joshi, Preet; Rathi, Sonika; McLaughlin, Patrick A; Kempen, Cody; <strong>Mehta, Neil</strong>; Eskiocak, Onur; Yueh, Brian. 2021. 
+    <em>IL-22 receptor signaling in Paneth cells is critical for their maturation, microbiota colonization, Th17-related immune responses, and anti-Salmonella immunity.</em> 
+    <em>Mucosal Immunology</em> 14(2): 389–401.
+  </li>
+  <li>
+    Duanmu, Hongyi; Ren, Thomas; Li, Haifang; <strong>Mehta, Neil</strong>; Singer, Adam J; Levsky, Jeffrey M; Lipton, Michael L; Duong, Tim Q. 2022. 
+    <em>Deep learning of longitudinal chest X-ray and clinical variables predicts duration on ventilator and mortality in COVID-19 patients.</em> 
+    <em>BioMedical Engineering OnLine</em> 21(1): 1–15.
+  </li>
+  <li>
+    Babar, Mustufa; Jamil, Hasan; <strong>Mehta, Neil</strong>; Moutwakil, Ahmed; Duong, Tim Q. 2024. 
+    <em>Short-and Long-Term Chest-CT Findings after Recovery from COVID-19: A Systematic Review and Meta-Analysis.</em> 
+    <em>Diagnostics</em> 14(6): 621.
+  </li>
+  <li>
+    Singh, Simran; <strong>Mehta, Neil</strong>; Noh, Madeline; Bond, Keosha; Threats, Megan; Jackson, John; Nnawulezi, Nkiru; Mercedes, Marquisele; Agénor, Madina. 2025. 
+    <em>Weight-Based Health Care Discrimination and Cervical Cancer Screening Among Black Sexual and Gender Minoritized Assigned Female at Birth Adults in the United States.</em> 
+    <em>Health Equity</em> 9(1): 22–30.
+  </li>
+  <li>
+    <strong>Mehta, Neil</strong>; Assenov, Assen; Ogletree, Aaron; Farhat, Tilda. 2023. 
+    <em>Using a Novel Socioeconomic and Health Indicator Visualization Tool to Improve Minority Health.</em> 
+    <em>Value in Health</em> 26(6): S372.
+  </li>
+  <li>
+    Noh, Madeline; <strong>Mehta, Neil</strong>; Kim, Christine; Bond, Keosha; Threats, Megan; Jackson, John W.; Nnawulezi, Nkiru; Agénor, Madina. 2025. 
+    <em>Association between healthcare discrimination and medical mistrust among Black sexual and gender minoritized assigned female at birth adults in the United States.</em> 
+    <em>LGBT Health</em>.
+  </li>
+  <li>
+    Singh, Yashaswini; Murray, Roslyn; Reddy, Megha; Perkins, Jared; <strong>Mehta, Neil</strong>; Whaley, Christopher; Brown, Erin Fuse. 2025. 
+    <em>Private Equity Investments in Physician Practices in Maryland: A Report Prepared for the Maryland Health Care Commission.</em>
+  </li>
+</ul>
+
+    <h1>Contact Me</h1>
+  <p>Reach me via email: neilmhta[at]gmail[dot]com. For confidential tips, reach me via Signal at neil.mehta01. You can also find me on X/Twitter @<a href="https://x.com/neilmhta" target="_blank">neilmhta</a>, Linkedin @<a href="https://linkedin.com/in/neilmhta" target="_blank">neilmhta</a> and (most importantly) Spotify @<a href="https://open.spotify.com/user/neilmhta" target="_blank">neilmhta</a>.</p>
+  <p>Thoughts on my web design? <a href="#" id="changeStyle">Share your feedback</a>.</p>
+  
 
 
+    <img src="./static/image.jpeg" style="width:100%">
+
+  <footer style="padding-top: 20px">
+  <p style="text-align: center">&copy; 2025 Neil Mehta.</p>
+</footer>
+
+  
+
+  
+  <script>
+  const fonts = ["Arial", "Georgia", "Courier New", "Verdana", "Tahoma"];
+  const bgColors = ["#f4f4f4", "#e0f7fa", "#fff3e0", "#ede7f6", "#fce4ec", "#dcedc8"];
+
+  document.getElementById("changeStyle").addEventListener("click", function (e) {
+    e.preventDefault();
+    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+    const randomBg = bgColors[Math.floor(Math.random() * bgColors.length)];
+    document.body.style.fontFamily = randomFont;
+    document.body.style.backgroundColor = randomBg;
+  });
+</script>
 
 </body>
+
 </html>
