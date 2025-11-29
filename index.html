@@ -161,6 +161,119 @@
 ]
 </script>
 
+<style>
+/* Postcard flip */
+.postcard-container {
+  margin-top: 24px;
+  perspective: 1000px;
+}
+
+/* The card itself */
+.postcard-inner {
+  position: relative;
+  width: 100%;
+  max-width: 640px;   /* original image width */
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+  /* height is set via JS to match the image */
+}
+
+/* Flip state */
+.postcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces */
+.postcard-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Front face on top initially */
+.postcard-face.front {
+  z-index: 2;
+}
+
+/* Back face rotated + background image */
+.postcard-face.back {
+  transform: rotateY(180deg);
+  background-image: url("./static/image.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Front image: defines height */
+.postcard-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+
+/* Back overlay with form */
+.postcard-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Inner form box */
+.postcard-form-box {
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  border: 0px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+}
+
+.postcard-form-box form{
+  height: 100%
+}
+
+
+.postcard-form-box h3 {
+  margin: 0 0 0 0;
+  font-size: 1rem;
+}
+
+.postcard-form-box textarea {
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.postcard-form-box button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  background: none; border: 0px; 
+  font-family:'Times New Roman', Times, serif;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+}
+
+
+</style>
 
 </head>
 <body style="width: min(550px, 80%); margin: auto">
@@ -248,14 +361,51 @@
   <p>Disagree with my web design? <a href="#" id="changeStyle">Try something different</a>.</p>
   
 
+<!-- Postcard flip block -->
+<div class="postcard-container">
+  <div class="postcard-inner" id="postcard">
+    
+    <!-- FRONT: image -->
+    <div class="postcard-face front">
+      <img
+        src="./static/image.jpeg"
+        id="postcard-img"
+        class="postcard-image"
+        alt="Me, standing on a beach with trees in the background, taking a photo to my right."
+      >
+    </div>
 
-    <img src="./static/image.jpeg" style="width:100%" alt="Me, standing on a becah with trees in the background, taking a photo to my right." >
+      <!-- BACK: same image as background + overlay with form -->
+      <div class="postcard-face back">
+        <div class="postcard-overlay">
+          <div class="postcard-form-box">
+            <form
+              action="https://script.google.com/macros/s/AKfycbyzDL04qQC4fcJ5VInvOYXOVhaeBeoQdY-gFnTvknrDSGrdlAzTK_7BQ8qEqtXD5WdA/exec"
+              method="post"
+              target="hidden_iframe"
+            >
+              <textarea
+                name="message"
+                placeholder="your anonymous message ..."
+                required
+              ></textarea>
+              <br>
+              <button type="submit" >send your postcard?</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- Hidden iframe so the page doesn't navigate away -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+</div>
+
 
   <footer style="padding-top: 20px">
   <p style="text-align: center">&copy; 2026 Neil Mehta.</p>
 </footer>
-
-  
 
   
   <script>
@@ -269,8 +419,35 @@
     document.body.style.fontFamily = randomFont;
     document.body.style.backgroundColor = randomBg;
   });
+
+
+  // Flip behavior + height sync with image
+  document.addEventListener("DOMContentLoaded", () => {
+    const card = document.getElementById("postcard");
+    const img = document.getElementById("postcard-img");
+
+    if (!card || !img) return;
+
+    function setCardHeight() {
+      // Match card height to the front image
+      card.style.height = img.offsetHeight + "px";
+    }
+
+    if (img.complete) {
+      setCardHeight();
+    } else {
+      img.addEventListener("load", setCardHeight);
+    }
+
+    window.addEventListener("resize", setCardHeight);
+
+    // Click to flip, but don't flip if clicking inside the form
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("form")) return;
+      card.classList.toggle("flipped");
+    });
+  });
 </script>
 
 </body>
-
 </html>
