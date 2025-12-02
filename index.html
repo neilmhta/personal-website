@@ -231,11 +231,12 @@
 
 /* Inner form box */
 .postcard-form-box {
+  position: relative;      
   width: 100%;
   max-width: 480px;
   height: 100%;
-  border: 0px;
-  padding: 0;
+  border: 0;
+  padding: 16px;
   background: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
 }
@@ -252,8 +253,8 @@
 
 .postcard-form-box textarea {
   width: 100%;
-  height: 100%;
-  border: 0px;
+  height: calc(100% - 48px);   /* leave room for button */
+  border: 0;
   padding: 8px;
   font-family: inherit;
   font-size: 0.95rem;
@@ -262,14 +263,16 @@
 }
 
 .postcard-form-box button {
-  margin-top: 8px;
+  position: absolute;
+  left: 16px;                  /* optional, but usually desired */
+  bottom: 20px;
+  margin-top: 0;
   padding: 6px 12px;
   font-size: 0.95rem;
-  background: none; border: 0px; 
-  font-family:'Times New Roman', Times, serif;
+  background: none;
+  border: 0;
+  font-family: 'Times New Roman', Times, serif;
   cursor: pointer;
-  position: absolute;
-  bottom: 20px;
 }
 
 
