@@ -270,6 +270,7 @@
   padding: 6px 12px;
   font-size: 0.95rem;
   background: none;
+  color: rgb(111, 111, 195);
   border: 0;
   font-family: 'Times New Roman', Times, serif;
   cursor: pointer;
@@ -411,7 +412,7 @@
 </footer>
 
   
-  <script>
+<script>
   const fonts = ["Arial", "Georgia", "Courier New", "Verdana", "Tahoma"];
   const bgColors = ["#f4f4f4", "#e0f7fa", "#fff3e0", "#ede7f6", "#fce4ec", "#dcedc8"];
 
@@ -422,7 +423,6 @@
     document.body.style.fontFamily = randomFont;
     document.body.style.backgroundColor = randomBg;
   });
-
 
   // Flip behavior + height sync with image
   document.addEventListener("DOMContentLoaded", () => {
@@ -449,8 +449,39 @@
       if (e.target.closest("form")) return;
       card.classList.toggle("flipped");
     });
+
+    // --- Message validation + "message sent" UX ---
+    const form = document.querySelector(".postcard-form-box form");
+    const textarea = document.querySelector(".postcard-form-box textarea");
+    const originalPlaceholder = textarea.placeholder;
+
+    if (form && textarea) {
+      form.addEventListener("submit", (e) => {
+        const value = textarea.value.trim();
+
+        // Extra validation (on top of `required`)
+        if (!value) {
+          e.preventDefault();
+          textarea.value = "";
+          textarea.placeholder = "please write a message first";
+          textarea.focus();
+          return;
+        }
+
+        // Optimistic UX: clear + show "message sent"
+        textarea.value = "";
+        textarea.blur();
+        textarea.placeholder = "message sent";
+
+        // Optionally reset placeholder after a few seconds
+        setTimeout(() => {
+          textarea.placeholder = originalPlaceholder;
+        }, 3000);
+      });
+    }
   });
 </script>
+
 
 </body>
 </html>
