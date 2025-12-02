@@ -450,35 +450,58 @@
       card.classList.toggle("flipped");
     });
 
-    // --- Message validation + "message sent" UX ---
-    const form = document.querySelector(".postcard-form-box form");
-    const textarea = document.querySelector(".postcard-form-box textarea");
-    const originalPlaceholder = textarea.placeholder;
+// --- Message validation + "sending..." / "message sent" UX ---
+const form = document.querySelector(".postcard-form-box form");
+const textarea = document.querySelector(".postcard-form-box textarea");
+const button = document.querySelector(".postcard-form-box button");
+const iframe = document.querySelector('iframe[name="hidden_iframe"]');
+const originalPlaceholder = textarea ? textarea.placeholder : "";
+const originalButtonText = button ? button.textContent : "";
+let hasSubmitted = false;
 
-    if (form && textarea) {
-      form.addEventListener("submit", (e) => {
-        const value = textarea.value.trim();
+if (form && textarea && button && iframe) {
+  form.addEventListener("submit", (e) => {
+    const value = textarea.value.trim();
 
-        // Extra validation (on top of `required`)
-        if (!value) {
-          e.preventDefault();
-          textarea.value = "";
-          textarea.placeholder = "please write a message first";
-          textarea.focus();
-          return;
-        }
-
-        // Optimistic UX: clear + show "message sent"
-        textarea.value = "";
-        textarea.blur();
-        textarea.placeholder = "message sent";
-
-        // Optionally reset placeholder after a few seconds
-        setTimeout(() => {
-          textarea.placeholder = originalPlaceholder;
-        }, 3000);
-      });
+    // Extra validation (on top of `required`)
+    if (!value) {
+      e.preventDefault();
+      textarea.value = "";
+      textarea.placeholder = "please write a message first";
+      textarea.focus();
+      return;
     }
+
+    // Mark that we have a real submission in flight
+    hasSubmitted = true;
+
+    // Show "sending..." state, but DO NOT clear textarea yet
+    button.textContent = "sending...";
+    button.disabled = true;  // optional, but prevents double-clicks
+  });
+
+  // When the hidden iframe loads, the POST has completed
+  iframe.addEventListener("load", () => {
+    // Ignore any load event that didn't come from a form submit
+    if (!hasSubmitted) return;
+    hasSubmitted = false;
+
+    // Now it's safe to clear/acknowledge
+    textarea.value = "";
+    textarea.blur();
+    textarea.placeholder = "message sent";
+
+    // Restore button
+    button.textContent = originalButtonText;
+    button.disabled = false;
+
+    // Optionally reset placeholder after a few seconds
+    setTimeout(() => {
+      textarea.placeholder = originalPlaceholder;
+    }, 3000);
+  });
+}
+
   });
 </script>
 
