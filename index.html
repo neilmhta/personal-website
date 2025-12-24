@@ -282,8 +282,8 @@
 </head>
 <body style="width: min(550px, 80%); margin: auto">
   <h1>About Me</h1>
-  <p>I'm a news associate at The Wall Street Journal. I enjoy reading and writing about housing, health care delivery and big data, though rarely in combination. I previously worked at the Center for Advancing Health Policy Through Research, a health care research center. You can find my work in The Wall Street Journal, Health Affairs, JAMA, The Boston Globe, Gothamist, TK.</p>
-  <p>I went to Brown Universiy, where I switched through seven majors before settling on statistics and public health. This had little bearing on my experience, because I spent most of my time in research labs and at my school paper.</p>
+  <p>I'm a news associate at The Wall Street Journal. I mainly write about housing, health care delivery and big data, though rarely in combination. I previously worked at the Center for Advancing Health Policy Through Research, a health care research center. You can find my work in The Wall Street Journal, Health Affairs, JAMA, The Boston Globe, Gothamist and WNYC</p>
+  <p>I graduated in 2025 from Brown Universiy, where I tried seven different majors before settling on statistics and public health. But I spent most of my time on campus at the school newspaper anyway.</p>
   <p>I grew up on Long Island and now live in Brooklyn. In my free time, I co-run a free <a href="https://copulaprogram.org/" target="_blank">summer research program</a> for high school students.</p>
   <h1>Writing</h1>
   <p>Here is a selection of my work:</p>
@@ -299,6 +299,7 @@
   <li><a href="https://www.wsj.com/us-news/brown-shooting-lockdown-students-night-09d60a9b?st=fyFAJR&reflink=desktopwebshare_permalink" target="_blank">A Night Huddled in Lockdown at Brown: ‘It Could’ve Been Any One of Us’</a> — The Wall Street Journal.</li>
   <li><a href="https://www.wsj.com/us-news/police-detain-person-of-interest-in-deadly-brown-university-shooting-010e99c8?st=Zt95Dk&reflink=desktopwebshare_permalink" target="_blank">Police Detain Person of Interest in Brown University Shooting While Campus Mourns</a> — The Wall Street Journal.</li>
   <li><a href="https://www.wsj.com/us-news/brown-university-reports-active-shooter-on-campus-87f7439d?st=CYkwPo&reflink=desktopwebshare_permalink" target="_blank">Brown University Shooting Leaves 2 Dead, 9 Injured</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.healthaffairs.org/content/forefront/unpacking-private-equity-investments-drug-industry-third-party-entities" target="_blank">Unpacking Private Equity Investments In Drug Industry Third-Party Entities</a> — Health Affairs Forefront.</li>
   <li><a href="https://www.healthaffairs.org/content/forefront/transparency-reveals-health-care-prices-and-billing-and-payments-system-need-overhaul" target="_blank">Transparency Reveals A Billing And Payments System In Need Of Overhaul</a> — Health Affairs Forefront.</li>
   <li><a href="https://www.bostonglobe.com/2025/07/10/opinion/private-equity-hospitals-steward-health-care/" target="_blank">The loophole that could allow another private equity debacle in Mass. health care</a> — The Boston Globe.</li>
   <li><a href="https://www.healthaffairs.org/content/forefront/massachusetts-s-new-health-care-reform-takes-aim-private-equity" target="_blank">How Massachusetts’s New Health Care Reform Takes Aim at Private Equity</a> — Health Affairs Forefront.</li>
@@ -352,6 +353,11 @@
     <em>Diagnostics</em> 14(6): 621.
   </li>
   <li>
+    <strong>Mehta, Neil</strong>; Brown, Erin Fuse; Arnold, Daniel. 2025 
+    <em>Closing the Gaps: Policy Solutions for Cross-Market Hospital Mergers</em> 
+    <em>Center for Advancing Health Policy through Research (CAHPR) Digital Collection.</em> doi:10.26300/3ksg-qz14.
+  </li>
+  <li>
     Singh, Simran; <strong>Mehta, Neil</strong>; Noh, Madeline; Bond, Keosha; Threats, Megan; Jackson, John; Nnawulezi, Nkiru; Mercedes, Marquisele; Agénor, Madina. 2025. 
     <em>Weight-Based Health Care Discrimination and Cervical Cancer Screening Among Black Sexual and Gender Minoritized Assigned Female at Birth Adults in the United States.</em> 
     <em>Health Equity</em> 9(1): 22–30.
@@ -374,14 +380,13 @@
 
     <h1>Contact Me</h1>
   <p>Reach me via email: neil[dot]mehta[at]wsj[dot]com. For confidential tips, reach me via Signal at neil.mehta01.<br><br>You can also find me on X/Twitter @<a href="https://x.com/neilmhta" target="_blank">neilmhta</a>, Linkedin @<a href="https://linkedin.com/in/neilmhta" target="_blank">neilmhta</a> and (most importantly) Spotify @<a href="https://open.spotify.com/user/neilmhta" target="_blank">neilmhta</a>.</p>
-  <p>Disagree with my web design? <a href="#" id="changeStyle">Try something different</a>.</p>
+  <p>Don't like my web design? <a href="#" id="changeStyle">Try something different</a>.</p>
   
 
-<!-- Postcard flip block -->
 <div class="postcard-container">
   <div class="postcard-inner" id="postcard">
     
-    <!-- FRONT: image -->
+    <!-- FRONT -->
     <div class="postcard-face front">
       <img
         src="./static/image.jpeg"
@@ -391,7 +396,7 @@
       >
     </div>
 
-      <!-- BACK: same image as background + overlay with form -->
+      <!-- BACK -->
       <div class="postcard-face back">
         <div class="postcard-overlay">
           <div class="postcard-form-box">
@@ -414,7 +419,6 @@
 
   </div>
 
-  <!-- Hidden iframe so the page doesn't navigate away -->
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 </div>
 
@@ -456,13 +460,11 @@
 
     window.addEventListener("resize", setCardHeight);
 
-    // Click to flip, but don't flip if clicking inside the form
     card.addEventListener("click", (e) => {
       if (e.target.closest("form")) return;
       card.classList.toggle("flipped");
     });
 
-// --- Message validation + "sending..." / "message sent" UX ---
 const form = document.querySelector(".postcard-form-box form");
 const textarea = document.querySelector(".postcard-form-box textarea");
 const button = document.querySelector(".postcard-form-box button");
