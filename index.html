@@ -288,6 +288,17 @@
   <h1>Writing</h1>
   <p>Here is a selection of my work:</p>
 <ul>
+  <li><a href="https://www.wsj.com/us-news/the-american-service-members-who-were-killed-in-kuwait-609d7813?st=pCNRUS&reflink=desktopwebshare_permalink" target="_blank">The American Servicemembers Who Were Killed in Kuwait</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/finance/epstein-files-fallout-consequences-34324afa?st=TMvNMw&reflink=desktopwebshare_permalink" target="_blank">Epstein Files Fallout: 40 Famous Names and High-Profile Exits</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/law/what-we-know-so-far-about-the-latest-release-of-epstein-files-260dafba?st=EJNzYU&reflink=desktopwebshare_permalink" target="_blank">The Famous Names in the Latest Release of Epstein Files</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/education/epstein-used-his-fortune-to-infiltrate-americas-most-prestigious-universities-581cf30c?st=3xE1bD&reflink=desktopwebshare_permalink" target="_blank">Epstein Used His Fortune to Infiltrate America’s Most Prestigious Universities</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/ignore-it-how-the-elite-consoled-jeffrey-epstein-over-his-crimes-3cb0e7d0?st=hj6gNC&reflink=desktopwebshare_permalink" target="_blank">‘Ignore It.’ How the Elite Consoled Jeffrey Epstein Over His Crimes.</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/flirty-emails-and-chummy-photos-show-how-far-epstein-reached-into-business-world-5e150c7c?st=r696Z1&reflink=desktopwebshare_permalink" target="_blank">Flirty Emails and Chummy Photos Show How Far Epstein Reached Into Business World</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/politics/policy/the-lawyer-for-the-agent-who-shot-renee-good-thinks-ice-has-gone-too-far-065fe1fe?st=vCQhhy&reflink=desktopwebshare_permalink" target="_blank">The Lawyer for the Agent Who Shot Renee Good Thinks ICE Has Gone Too Far</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/what-we-know-so-far-about-alex-pretti-303f6e06?st=1Fn4w3&reflink=desktopwebshare_permalink" target="_blank">What We Know So Far About Alex Pretti</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/federal-agents-shoot-another-person-in-minneapolis-gov-walz-says-469e5862?st=NhagaG&reflink=desktopwebshare_permalink" target="_blank">Border Patrol Agent Fatally Shoots Man in Minneapolis, Escalating State-Federal Standoff</a> — The Wall Street Journal.</li>
+  <li><a href="https://www.wsj.com/us-news/suspect-in-brown-university-shooting-confessed-in-videos-e8397c58?st=3Mroq2&reflink=desktopwebshare_permalink" target="_blank">Suspect in Brown University Shooting Confessed in Videos</a> — The Wall Street Journal.</li>
+
   <li><a href="https://www.wsj.com/us-news/education-department-investigates-brown-universitys-security-systems-after-shooting-6b377baa?st=TXRUAs&reflink=desktopwebshare_permalink" target="_blank">Education Department Investigates Brown University’s Security Systems After Shooting</a> — The Wall Street Journal.</li>
   <li><a href="https://www.wsj.com/us-news/claudio-neves-valente-brown-mit-shooter-nuno-loureiro-efd84bd3?st=Cgj6Sh&reflink=desktopwebshare_permalink" target="_blank">Two Young Physicists Seemed Destined for Greatness. Two Decades Later, One Shot the Other Dead.</a> — The Wall Street Journal.</li>
   <li><a href="https://www.wsj.com/us-news/brown-shooting-suspect-claudioneves-valente-dead-768cb96d?st=1XQc4S&reflink=desktopwebshare_permalink" target="_blank">Brown and MIT Shooting Suspect Found Dead in New Hampshire</a> — The Wall Street Journal.</li>
@@ -448,7 +459,7 @@
     if (!card || !img) return;
 
     function setCardHeight() {
-      // Match card height to the front image
+      // match card height to the front image
       card.style.height = img.offsetHeight + "px";
     }
 
@@ -473,6 +484,7 @@ const originalPlaceholder = textarea ? textarea.placeholder : "";
 const originalButtonText = button ? button.textContent : "";
 let hasSubmitted = false;
 
+      
 if (form && textarea && button && iframe) {
   form.addEventListener("submit", (e) => {
     const value = textarea.value.trim();
@@ -491,7 +503,7 @@ if (form && textarea && button && iframe) {
 
     // Show "sending..." state, but DO NOT clear textarea yet
     button.textContent = "sending...";
-    button.disabled = true;  // optional, but prevents double-clicks
+    button.disabled = true; 
   });
 
   // When the hidden iframe loads, the POST has completed
@@ -509,7 +521,7 @@ if (form && textarea && button && iframe) {
     button.textContent = originalButtonText;
     button.disabled = false;
 
-    // Optionally reset placeholder after a few seconds
+    //  reset placeholder after a few seconds
     setTimeout(() => {
       textarea.placeholder = originalPlaceholder;
     }, 3000);
